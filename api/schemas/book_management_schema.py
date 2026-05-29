@@ -1,0 +1,116 @@
+GET_BOOK_SCHEMA = {
+    "type": "object",
+    "required":["list","pagination"],
+    "properties":{
+        "list":{
+        "type":"array",
+        "items":{
+            "type":"object",
+            "required":["id","name","description","slug","categories","picture","auth","status","createdAt","updatedAt",
+                        "price","currentPrice","viewCount","promotions"],
+            "properties":{
+                "id":{"type":"string"},
+                "name":{"type":"string"},
+                "description":{"type":"string"},
+                "slug":{"type":"string"},
+                "categories":{"type":"array","items":{"type":"string"}},
+                "picture":{"type":"array","items":{"type":"string"}},
+                "auth":{"type":"object","required":["name","email","avatarUrl"],"properties":{"name":{"type":"string"},"email":{"type":"string"},"avatarUrl":{"type":"string"},},
+                "status":{"type":"string"},
+                "createdAt":{"type":"string"},
+                "updatedAt":{"type":"string"},
+                "price":{"type":"string"},
+                "currentPrice":{"type":"string"},
+                "viewCount":{"type":"string"},
+                "promotions":{"type":"array","items":{
+                    "type":"object",
+                    "required":["name","description","type","startDate","endDate","code","value"],
+                    "properties":{
+                        "name":{"type":"string"},
+                        "description":{"type":"string"},
+                        "type":{"type":"string"},
+                        "startDate":{"type":"string"},
+                        "endDate":{"type":"string"},
+                        "code":{"type":"string"},
+                        "value":{"type":"string"},
+
+                    }
+
+                }
+                              },
+            }
+        }
+        },
+        "pagination":{
+            "type":"object",
+            "required":["total","totalPage","currentPage","lengthPage"],
+            "properties":{
+                "total":{"type":"integer"},
+                "totalPage":{"type":"integer"},
+                "currentPage":{"type":"integer"},
+                "lengthPage":{"type":"integer"},
+            }
+        }
+    }
+    }
+
+}
+GET_SPECIFIC_BOOK_SCHEMA = {
+    "type": "object",
+    "required":["id","name","description","price","currentPrice","viewCount","status","createdAt","updatedAt","picture","auth","categories","promotions"],
+    "properties":{
+        "id":{"type":"string"},
+        "name":{"type":"string"},
+        "description":{"type":"string"},
+        "price":{"type":"integer"},
+        "currentPrice":{"type":"integer"},
+        "viewCount":{"type":"integer"},
+        "status":{"type":"string"},
+        "createdAt":{"type":"string"},
+        "updatedAt":{"type":"string"},
+        "picture":{
+            "type":"array",
+            "items":{
+                "type":"object",
+                "required":["name","path","isFile","size","type","modified","created"],
+                "properties":{
+                    "name":{"type":"string"},
+                    "path":{"type":"string"},
+                    "isFile":{"type":"boolean"},
+                    "size":{"type":"integer"},
+                    "type":{"type":"string"},
+                    "modified":{"type":"string"},
+                    "created":{"type":"string"},
+                }
+            }
+        },
+        "auth":{"type":"object",
+            "required":["name","email","avatarUrl"],
+            "properties":{
+                "name":{"type":"string"},
+                "email":{"type":"string"},
+                "avatarUrl":{"type":"string"},
+
+            }
+        },
+        "categories":{"type":"array","items":{"type":"string"}},
+        "promotions":{
+            "type":"array",
+            "items":{
+                "type":"object",
+                "required":["id","name","description","type","startDate","endDate","code","value"],
+                "properties":{
+                    "id":{"type":"string"},
+                    "name":{"type":"string"},
+                    "description":{"type":"string"},
+                    "type":{"type":"string"},
+                    "startDate":{"type":"string"},
+                    "endDate":{"type":"string"},
+                    "code":{"type":"string"},
+                    "value":{"type":"integer"}
+                }
+
+            }
+        }
+    }
+}

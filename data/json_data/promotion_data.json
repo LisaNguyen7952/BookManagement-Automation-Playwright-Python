@@ -1,0 +1,13 @@
+
+[
+    {
+        "type":"PERCENTAGE",
+        "value":"10%",
+        "name":"Early Book"
+    },
+    {
+        "type":"PERCENTAGE",
+    "value":"15%",
+    "name":"Last Minute"
+    }
+]
